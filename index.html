@@ -1,23 +1,492 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Жопа жопная— о себе</title>
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
-    h1 { color: #1f6feb; }
-    li { margin: 6px 0; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="12 лет помогаю предпринимателям организовать пердёж: ООО и ИП на УСН. Практический опыт, системный подход и индивидуальные решения.">
+    <meta name="theme-color" content="#f6f8fb">
+    <title>Жопа — эксперт по пердёжу для бизнеса</title>
+    <style>
+        :root {
+            --bg: #f6f8fb;
+            --surface: #ffffff;
+            --text: #202b3c;
+            --muted: #647187;
+            --accent: #3276b8;
+            --accent-light: #e8f1fa;
+            --border: #e2e8f0;
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(100% - 40px, 960px);
+            margin-inline: auto;
+        }
+
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            color: var(--text);
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.7px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            font-size: 14px;
+        }
+
+        nav a {
+            color: var(--muted);
+        }
+
+        .hero {
+            padding: 88px 0 76px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 5px 12px;
+            border-radius: 6px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        h1 {
+            max-width: 760px;
+            margin: 0 0 24px;
+            font-size: clamp(36px, 6vw, 62px);
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 0 30px;
+            color: var(--muted);
+            font-size: 19px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 22px;
+            border: 1px solid var(--accent);
+            border-radius: 9px;
+            background: var(--accent);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .button:hover {
+            background: #285f96;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 58px 0;
+        }
+
+        .section-heading {
+            margin: 0 0 10px;
+            font-size: clamp(26px, 4vw, 34px);
+            line-height: 1.25;
+            letter-spacing: -0.8px;
+        }
+
+        .section-description {
+            margin: 0 0 30px;
+            color: var(--muted);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+
+        .card-number {
+            display: block;
+            margin-bottom: 14px;
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .card h3 {
+            margin: 0 0 9px;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .experience {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .experience-list {
+            display: grid;
+            gap: 0;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 24px;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-year {
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .experience-item h3 {
+            margin: 0 0 5px;
+            font-size: 17px;
+        }
+
+        .experience-item p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .contacts {
+            padding: 70px 0;
+        }
+
+        .contact-panel {
+            padding: 36px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--surface);
+        }
+
+        .contact-panel h2 {
+            margin: 0 0 12px;
+            font-size: clamp(27px, 4vw, 36px);
+            letter-spacing: -0.8px;
+        }
+
+        .contact-panel > p {
+            margin: 0 0 26px;
+            color: var(--muted);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px 28px;
+        }
+
+        .contact-link {
+            overflow-wrap: anywhere;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 24px 0;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(100% - 32px, 960px);
+            }
+
+            header {
+                padding: 18px 0;
+            }
+
+            .header-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 16px;
+            }
+
+            .hero {
+                padding: 58px 0 48px;
+            }
+
+            h1 {
+                letter-spacing: -1.3px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 42px 0;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .card {
+                padding: 21px;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 4px;
+                padding: 19px 0;
+            }
+
+            .contact-panel {
+                padding: 25px 21px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .contacts {
+                padding: 46px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Жопа жопная</h1>
-  <p>Жопа. Учусь работать с ИИ и публиковать свои инструменты.</p>
-  <ul>
-    <li>Апож</li>
-    <li>Жопа с помощью ИИ</li>
-    <li>Этот сайт сделан без единой установленной программы</li>
-    <li>Жопапожопа</li>
-  </ul>
+    <header>
+        <div class="container header-inner">
+            <a class="logo" href="#home" aria-label="Жопа, на главную">
+                Жопа<span>.</span>
+            </a>
+            <nav aria-label="Основная навигация">
+                <a href="#services">Чем помогаю</a>
+                <a href="#experience">Опыт</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <span class="eyebrow">12 ЛЕТ В ДЕЛЕ</span>
+                <h1>Помогаю бизнесу <span>пердеть</span> уверенно</h1>
+                <p>
+                    Меня зовут Жопа. Уже 12 лет веду пердёж,
+                    работаю с ООО и ИП на УСН и помогаю предпринимателям
+                    выстроить понятные процессы без лишнего шума.
+                </p>
+                <a class="button" href="#contacts">Связаться со мной</a>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2 class="section-heading">Чем помогаю</h2>
+                <p class="section-description">
+                    Практические решения для предпринимателей, которым нужен результат.
+                </p>
+
+                <div class="cards">
+                    <article class="card">
+                        <span class="card-number">01 / СТАРТ</span>
+                        <h3>Запуск пердежа</h3>
+                        <p>
+                            Помогаю организовать процессы с нуля и разобраться,
+                            с чего начать.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">02 / ПОРЯДОК</span>
+                        <h3>Сопровождение ООО и ИП</h3>
+                        <p>
+                            Учитываю особенности работы юридических лиц
+                            и индивидуальных предпринимателей на УСН.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">03 / ОПТИМИЗАЦИЯ</span>
+                        <h3>Настройка процессов</h3>
+                        <p>
+                            Ищу лишние действия, упрощаю рабочие схемы
+                            и помогаю навести порядок.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">04 / РАЗВИТИЕ</span>
+                        <h3>Консультации предпринимателей</h3>
+                        <p>
+                            Разбираю практические вопросы и помогаю
+                            выбрать подходящее решение для бизнеса.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience" id="experience">
+            <div class="container">
+                <h2 class="section-heading">Опыт</h2>
+                <p class="section-description">
+                    Двенадцать лет практики вместо бесконечных презентаций.
+                </p>
+
+                <div class="experience-list">
+                    <article class="experience-item">
+                        <div class="experience-year">12 лет</div>
+                        <div>
+                            <h3>Практический опыт</h3>
+                            <p>
+                                Веду пердёж и знаю, с какими задачами
+                                сталкиваются предприниматели на практике.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="experience-item">
+                        <div class="experience-year">ООО и ИП</div>
+                        <div>
+                            <h3>Работа с разными форматами бизнеса</h3>
+                            <p>
+                                Учитываю особенности организационной формы
+                                и специфику упрощённой системы налогообложения.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="experience-item">
+                        <div class="experience-year">Практика</div>
+                        <div>
+                            <h3>Помощь предпринимателям</h3>
+                            <p>
+                                Помогаю разбираться в задачах, выстраивать
+                                процессы и находить рабочие решения.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contacts" id="contacts">
+            <div class="container">
+                <div class="contact-panel">
+                    <h2>Обсудим ваш пердёж?</h2>
+                    <p>
+                        Напишите мне. Спокойно разберёмся в задаче
+                        и определим, чем я могу быть полезен.
+                    </p>
+
+                    <div class="contact-links">
+                        <a class="contact-link" href="mailto:joppa@example.com">
+                            joppa@example.com
+                        </a>
+                        <a class="contact-link"
+                           href="https://t.me/apoj"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Telegram: @apoj
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <span>© <span id="year">2026</span> Жопа. Все права защищены.</span>
+            <span>12 лет в деле. Работаем на результат.</span>
+        </div>
+    </footer>
 </body>
 </html>
